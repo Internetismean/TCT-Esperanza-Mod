@@ -5991,10 +5991,10 @@ async function handleFooter() {
     new_footer.style.alignItems = "center";
 
     var candidatePic = createNewImageElement("https://cdn.imgchest.com/files/b74eb2d11364.png", 'borderBottom',"WOW");
-    var runningMatePic = createNewImageElement("https://i.imgur.com/T57rMr5.png", 'borderBottom',"WOW");
+    var runningMatePic = createNewImageElement("https://cdn.imgchest.com/files/208843bfb7bb.png", 'borderBottom',"<p>Artur dos Santos Silva might only be the person capable of contesting your grip on the party, the only person who can keep a coalition between the PDS and PUDS together. Thankfully, he’s also one of your closest friends.</p><p>Son of one of the most important figures of the First Republic, forging his path as a lawyer of the democratic opposition. Picked as Justice Minister during the Cunha Leal Ministry, while his relationship with Delgado was tumultuous, his close ties to the PUDS make him the perfect candidate for a Grand Coalition.");
 
     var candidateBox = createBox(candidatePic, "Presidente", "Emídio Guerreiro");
-    var runningMateBox = createBox(runningMatePic, "Primeiro-Ministro", "Francisco Cunha Leal");
+    var runningMateBox = createBox(runningMatePic, "Primeiro-Ministro", "Artur Santos Silva");
 
     var questionInfo = "Question " + (campaignTrail_temp.question_number + 1) + " of " + campaignTrail_temp.global_parameter_json[0].fields.question_count;
     var questionBox = createBoxWithTextAndPic(questionInfo, "https://i.imgur.com/KFchink.png");
@@ -6761,36 +6761,53 @@ function refreshDesk() {
     }
 }
 
-function makeDraggable(element) {
-    let isDragging = false;
-    let offsetX, offsetY;
+function makeDraggable(el) {
+  let x = 0, y = 0;
+  let startX, startY;
+  let dragging = false;
+  const dragThreshold = 5; // pixels before drag starts
 
-    element.onmousedown = function(event) {
-        isDragging = true;
-        offsetX = event.clientX - element.getBoundingClientRect().left;
-        offsetY = event.clientY - element.getBoundingClientRect().top;
+  el.style.position = 'absolute';
+  el.style.touchAction = 'none';
 
-        document.onmousemove = function(event) {
-            if (isDragging) {
-                const newX = event.clientX - offsetX;
-                const newY = event.clientY - offsetY;
+  el.addEventListener('pointerdown', (e) => {
+    // Don't drag if clicking a button or interactive element
+    if (e.target.closest('button, a, input, textarea, select')) return;
 
-                // Update the position of the element
-                element.style.left = newX + 'px';
-                element.style.top = newY + 'px';
+    startX = e.clientX - x;
+    startY = e.clientY - y;
+    dragging = false;
 
-                // Save the position in global variables
-                savedX = newX;
-                savedY = newY;
-            }
-        };
+    const onMove = (e) => {
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
 
-        document.onmouseup = function() {
-            isDragging = false;
-            document.onmousemove = null;
-            document.onmouseup = null;
-        };
+      // Only start dragging after small movement
+      if (!dragging) {
+        if (Math.abs(dx - x) > dragThreshold || Math.abs(dy - y) > dragThreshold) {
+          dragging = true;
+          el.setPointerCapture(e.pointerId);
+        } else {
+          return;
+        }
+      }
+
+      x = dx;
+      y = dy;
+      el.style.transform = `translate(${x}px, ${y}px)`;
     };
+
+    const onUp = (e) => {
+      if (dragging) {
+        el.releasePointerCapture(e.pointerId);
+      }
+      el.removeEventListener('pointermove', onMove);
+      el.removeEventListener('pointerup', onUp);
+    };
+
+    el.addEventListener('pointermove', onMove);
+    el.addEventListener('pointerup', onUp);
+  });
 }
 
 class Character {
@@ -6962,6 +6979,9 @@ const __deskTooltip = (() => {
   el.style.opacity = '0';
   el.style.transition = 'opacity .12s ease, transform .12s ease';
   el.style.transform = 'translateY(4px)';
+  el.style.maxWidth = '300px';
+  el.style.whiteSpace = 'normal';
+  el.style.overflowWrap = 'break-word';
   document.body.appendChild(el);
 
   return {
