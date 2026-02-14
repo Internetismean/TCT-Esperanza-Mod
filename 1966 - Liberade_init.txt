@@ -1,0 +1,868 @@
+campaignTrail_temp.election_json = [
+    {
+        "model": "campaign_trail.election",
+        "pk": 20,
+        "fields": {
+            "year": 1966,
+            "display_year": "1966",
+            "summary": "Delgado has ruled the nation for 10 years, crowned as President in 1956 and winning with even larger margins in ‘61, he has steered Portugal towards his vision of a bright future, leading it like a general would lead his army.</p>However, this personalistic style of governance has ruffle some feathers, especially with former PM Francisco Cunha Leal, with the two greatly disagreeing on how to conduct the war in Guinea, prompting a public fallout between the two and his dismissal as Prime Minister.</p>Suffering an horrible defeat in the 1966 election, the PDS stood broken and divided, salvaged by the sheer will of Emídio Guerreiro, shifting the party left and projecting himself as the true successor to Delgado.<br><br><button onclick='next0()'>Guiné-Bissau</button></li></p>",
+            "image_url": "https://i.imgur.com/lxurHBs.png",
+            "winning_electoral_vote_number": 270,
+            "advisor_url": "https://itsastronomical.com/assets/1996_EOH/96Advisor.png",
+            "recommended_reading": "<ul>\n<li><a href=https://www.chicagotribune.com/opinion/editorials/ct-edit-chicago-tribune-biden-endorsement-20200925-lnyxsb5qvrftnjjmj3rnzj33jy-story.html>Our Case For Joe Biden</a></li>\n<li><a href=https://nationalinterest.org/feature/case-trump-166808>The Case For Trump</a></li>\n<li><a href=https://www.npr.org/2020/11/18/935730100/how-biden-won-ramping-up-the-base-and-expanding-margins-in-the-suburbs>How Biden Won: Ramping Up The Base And Expanding Margins In The Suburbs</a></li>\n<li><a href=https://www.prospectmagazine.co.uk/politics/donald-trump-joe-biden-us-election-almost-win-votes-concede>Why Did Trump Almost Win?</a></li>\n<li><a href=https://www.hoover.org/research/no-evidence-voter-fraud-guide-statistical-claims-about-2020-election>No Evidence For Voter Fraud: A Guide To Statistical Claims About The 2020 Election</a></li>\n</ul>",
+            "has_visits": 1,
+            "no_electoral_majority_image": "../static/images/2012-no-majority.jpg"
+        }
+    }
+]
+
+next0 = function() {
+    const imageElement = document.querySelector('#election_image img');
+      imageElement.setAttribute('src', 'https://fotos.web.sapo.io/i/Gfb172dbd/21476648_Ans5q.jpeg');
+    text = "Bound to Portugal after the referendum, what began as passive resistance against the government in the aftermath of the 1956 Casa Gouveia Strike, became violent in late 1962, signaling the start of a new age in Guiné-Bissau.</p>Born during the indepenence referendum campaign, the Movimento para a Independência Nacional da Guiné (MING) enjoys broad support from the Marxist world, both military and diplomatic. Only solidified by the recent elevation of Rafael Barbosa to its leadership.</p>While the Macedo government has made greater strides than his predecessor in improving the living conditions in the region, there’s still much much work to be done is the region is to become unified behind Lisbon.<br><br><button onclick='back0()'>Portugal</button><br><br></p>"
+    document.getElementById("election_summary").innerHTML = text
+  }
+  
+back0 = function() {
+    const imageElement = document.querySelector('#election_image img');
+      imageElement.setAttribute('src', 'https://i.imgur.com/lxurHBs.png');
+   text = "Delgado has ruled the nation for 10 years, crowned as President in 1956 and winning with even larger margins in ‘61, he has steered Portugal towards his vision of a bright future, leading it like a general would lead his army.</p>However, this personalistic style of governance has ruffle some feathers, especially with former PM Francisco Cunha Leal, with the two greatly disagreeing on how to conduct the war in Guinea, prompting a public fallout between the two and his dismissal as Prime Minister.</p>Suffering an horrible defeat in the 1966 election, the PDS stood broken and divided, salvaged by the sheer will of Emídio Guerreiro, shifting the party left and projecting himself as the true successor to Delgado.<br><br><button onclick='next0()'>Guiné-Bissau</button><br><br></p>"
+   document.getElementById("election_summary").innerHTML = text
+  } 
+  
+campaignTrail_temp.temp_election_list = [{"id": 20, "year": 1966, "is_premium": 0, "display_year": "1966"}];
+campaignTrail_temp.show_premium = true;
+campaignTrail_temp.premier_ab_test_version = -1;
+  
+campaignTrail_temp.credits = "<button onclick='credits()'>The Esperança Team</button>";
+  
+credits = function() {
+    c = ["Done by PunkRadio"]
+    text = "CREDITS:\n\n"
+    for (i in c) {
+      text += c[i] + "\n"
+    }
+    alert(text)
+  }
+  
+campaignTrail_temp.global_parameter_json = [
+      {
+          "model": "campaign_trail.global_parameter",
+          "pk": 1,
+          "fields": {
+              "vote_variable": 1.125,
+              "max_swing": 0.12,
+              "start_point": 0.94,
+              "candidate_issue_weight": 10,
+              "running_mate_issue_weight": 3,
+              "issue_stance_1_max": -0.71,
+              "issue_stance_2_max": -0.3,
+              "issue_stance_3_max": -0.125,
+              "issue_stance_4_max": 0.125,
+              "issue_stance_5_max": 0.3,
+              "issue_stance_6_max": 0.71,
+              "global_variance": 0.01,
+              "state_variance": 0.005,
+              "question_count": 35,
+              "default_map_color_hex": "#C9C9C9",
+              "no_state_map_color_hex": "#999999"
+          }
+      }
+  ]
+
+campaignTrail_temp.candidate_json = [
+    {
+        "model": "campaign_trail.candidate", 
+        "pk": 201, 
+        "fields": {
+            "first_name": "Emídio", 
+            "last_name": "Guerreiro", 
+            "election": 20, 
+            "party": "Democrato-Social", 
+            "state": "Braga", 
+            "priority": 2, 
+            "description": "<p>Guerreiro, a warrior, seldom does a name fit so well with a man as with Emídio. Leaving Portugal in the 30s, fighting in the Spanish civil war on the side of the Republicans, fleeing to France after their loss, joining its resistance against the Nazis. After the war he settled in Paris, becoming a math teacher, but always fighting for Portuguese Democracy, becoming a close confident of Delgado and his main organiser in Europe.</p>Returning to Portugal after the ‘55 Coup, Guerreiro joined the PDS and cemented himself as the leader of its Social Democratic faction. Fighting to move the party to the left, an opportunity arose with the fall from grace of Cunha Leal and the collapse of the PDS-Right, allowing Guerreiro to leverage his connection with Delgado to become the parties candidate for the 1966 Presidential Elections.</p>Campaigning on a Progressive-Hawkish platform, defending many of the Socialist policies of the Macedo Government and an increase in defence budget to protect the nation against Spanish Fascists and Guinean Terrorists, the big question on everyones mind isn’t if Guerreiro can win, but if he can keep his party from breaking apart before he does.</p>", "color_hex": "#2150D9", 
+            "color_hex": "#cfb261", 
+            "secondary_color_hex": null,
+            "is_active": 1, 
+            "image_url": "https://i.imgur.com/0w3tcmA.png", 
+            "electoral_victory_message": "", 
+            "electoral_loss_message": "", 
+            "no_electoral_majority_message": "",
+             "description_as_running_mate": "'", 
+            "candidate_score": 1.0
+        }
+    },
+    {
+        "model": "campaign_trail.candidate", 
+        "pk": 202, 
+        "fields": {
+            "first_name": "Running Mate", 
+            "last_name": "PDS", 
+            "election": 20, 
+            "party": "Democrato-Social", 
+            "state": "Braga", 
+            "priority": 2, 
+            "description": "",
+            "color_hex": "#2150D9", 
+            "secondary_color_hex": null, 
+            "is_active": 0, 
+            "image_url": "https://i.imgur.com/0w3tcmA.png", 
+            "electoral_victory_message": "", 
+            "electoral_loss_message": "", 
+            "no_electoral_majority_message": "", 
+            "description_as_running_mate": "'", 
+            "candidate_score": 1.0,
+            "running_mate": true
+        }
+    },
+    {
+        "model": "campaign_trail.candidate", 
+        "pk": 203, 
+        "fields": {
+            "first_name": "Candidate for", 
+            "last_name": "PUDS", 
+            "election": 20, 
+            "party": "Democrato-Socialista", 
+            "state": "Braga", 
+            "priority": 2, 
+            "description": "Desc goes here",
+            "color_hex": "#5c8a65", 
+            "secondary_color_hex": null, 
+            "is_active": 0, 
+            "image_url": "https://i.imgur.com/0w3tcmA.png", 
+            "electoral_victory_message": "", 
+            "electoral_loss_message": "", 
+            "no_electoral_majority_message": "",
+             "description_as_running_mate": "'", 
+            "candidate_score": 1.0
+        }
+    },
+    {
+        "model": "campaign_trail.candidate", 
+        "pk": 204, 
+        "fields": {
+            "first_name": "Running Mate", 
+            "last_name": "PUDS", 
+            "election": 20, 
+            "party": "Democrato-Socialista", 
+            "state": "Braga", 
+            "priority": 2, 
+            "description": "",
+            "color_hex": "#2150D9", 
+            "secondary_color_hex": null, 
+            "is_active": 0, 
+            "image_url": "https://i.imgur.com/0w3tcmA.png", 
+            "electoral_victory_message": "", 
+            "electoral_loss_message": "", 
+            "no_electoral_majority_message": "", 
+            "description_as_running_mate": "'", 
+            "candidate_score": 1.0,
+            "running_mate": true
+        }
+    },
+    {
+        "model": "campaign_trail.candidate", 
+        "pk": 205, 
+        "fields": {
+            "first_name": "Candidate for", 
+            "last_name": "None of the above", 
+            "election": 20, 
+            "party": "Independent", 
+            "state": "Braga", 
+            "priority": 2, 
+            "description": "Desc goes here",
+            "color_hex": "#2c2e78", 
+            "secondary_color_hex": null, 
+            "is_active": 0, 
+            "image_url": "https://i.imgur.com/0w3tcmA.png", 
+            "electoral_victory_message": "", 
+            "electoral_loss_message": "", 
+            "no_electoral_majority_message": "",
+             "description_as_running_mate": "'", 
+            "candidate_score": 1.0
+        }
+    },
+    {
+        "model": "campaign_trail.candidate", 
+        "pk": 206, 
+        "fields": {
+            "first_name": "Running Mate", 
+            "last_name": "Independent", 
+            "election": 20, 
+            "party": "Independent", 
+            "state": "Braga", 
+            "priority": 2, 
+            "description": "",
+            "color_hex": "#2150D9", 
+            "secondary_color_hex": null, 
+            "is_active": 0, 
+            "image_url": "https://i.imgur.com/0w3tcmA.png", 
+            "electoral_victory_message": "", 
+            "electoral_loss_message": "", 
+            "no_electoral_majority_message": "", 
+            "description_as_running_mate": "'", 
+            "candidate_score": 1.0,
+            "running_mate": true
+        }
+    },
+  ]
+
+campaignTrail_temp.running_mate_json = [
+    {
+        "model": "campaign_trail.running_mate",
+        "pk": 155,
+        "fields": {
+            "candidate": 201,
+            "running_mate": 202
+        }
+    },
+    {
+        "model": "campaign_trail.running_mate",
+        "pk": 156,
+        "fields": {
+            "candidate": 203,
+            "running_mate": 204
+        }
+    },
+    {
+        "model": "campaign_trail.running_mate",
+        "pk": 157,
+        "fields": {
+            "candidate": 205,
+            "running_mate": 206
+        }
+    }
+  ]
+
+campaignTrail_temp.opponents_default_json = [
+    {"election": 20, 
+    "candidates": [201, 203, 205]
+    }
+]
+
+e = campaignTrail_temp;
+
+tooltipList = [
+    {searchString: "Delgado", explanationText: "<img src=https://www.lisbon-airport.com/wp-content/uploads/2024/03/Humberto-Delgado-LISBON.jpg> President Elect Humberto Delgado, has served as such since 1956, being relected in 1961, both times winning in landslides. "},        
+];
+
+campaignTrail_temp.achievements = {
+    "Warrior King" : {
+      "image" : "https://itsastronomical.com/assets/1996_EOH/ach/OfKennedys.png",
+      "description" : "Win the election as Guerreiro.",
+      "cannotBeCheated" : true
+    },
+    "Enough is Enough" : {
+      "image" : "https://itsastronomical.com/assets/1996_EOH/ach/wilson96.png",
+      "description" : "Win the election as Tenreiro",
+      "cannotBeCheated" : true
+    }
+}
+
+nct_stuff.quotes=[``]
+quotnum = Math.floor((Math.random() * nct_stuff.quotes.length))
+quote = nct_stuff.quotes[quotnum]
+corrr = `<h2>Eu estou pronto a morrer pela <span style="color:#b24c4c">LIBERDADE</span>!</h2><font id="wittyquote" size="4" color="white"><em>` + quote + `</em></font>`
+
+e.CandidText = "Please select your president:"
+e.VpText = "Please select your prime-Minister:"
+
+function removeCandidateSummary() {
+    try {
+      const candidateSummary = document.querySelector("#candidate_summary");
+      if (candidateSummary) {
+        const ulList = candidateSummary.querySelector("ul");
+        if (ulList) {
+          candidateSummary.removeChild(ulList);
+        }
+      }
+    } 
+    catch {}
+} 
+let z = new MutationObserver((mutationsList, observer) => {
+    let runningMateSummary = document.querySelector("#running_mate_summary");
+    if (runningMateSummary) {
+        $("#running_mate_id_button").click();
+        observer.disconnect()
+    }
+});
+z.observe(document, { subtree: true, childList: true });
+
+$("#game_window")[0].style.backgroundImage = "url(https://live.staticflickr.com/4027/4583267413_a8bcf22c7b_c.jpg)"
+
+$("#game_window")[0].style.backgroundSize = "cover"; 
+
+document.body.background = "https://www.noticiasdecoimbra.pt/wp-content/uploads/2014/03/026_FigueiraFoz.jpg"
+document.body.style.backgroundRepeat = "no-repeat";
+document.body.style.backgroundSize = "cover";
+document.body.style.backgroundPosition = "center";
+
+$(".container")[0].style.backgroundColor = "#2d4d69"
+
+  $("#game_start").click((event) => {
+    event.preventDefault();
+    $("#election_id_button").click((event) => {
+        musicMode()
+
+        setInterval(changeFontColour, 200)
+  
+    })
+  })
+
+
+document.getElementById("header").src = "https://upload.wikimedia.org/wikipedia/commons/7/76/1971-3_Portugal_Lisbon_from_Cristo_Rei_%2850877769638%29.jpg"
+
+document.styleSheets[0].insertRule(".game_header{ height:4.5em !important;}", 0);
+document.styleSheets[0].insertRule("#game_window{ height:45em !important;}", 0);
+
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#1f491f"
+
+document.styleSheets[0].insertRule(".inner_window_w_desc{ margin:1em 1em 0 !important;padding-top: 0.25em !important;}", 0);
+document.styleSheets[0].insertRule(".inner_window_question{ margin:0em 0em .1em !important;padding-top: 0.15em !important;}", 0);
+
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#b24c4c"
+
+document.getElementsByClassName("game_header")[0].style.backgroundColor = 
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title
+
+ $("#game_window")[0].style.borderColor = "#1f491f"
+
+$(".footer a").css({"color":"#ffffff"});
+nct_stuff.themes[nct_stuff.selectedTheme].text_col = "#ffffff"
+
+campaignTrail_temp.modBoxTheme = {
+     "header_color": "#393647",
+     "header_text_color": "#f4e5e5",
+     "description_text_color": "#282631",
+     "description_background_color": "#ad2d2f",
+     "main_color": "#ad2d2f",
+     "secondary_color": "#393647",
+     "ui_text_color": "#f4e5e5"
+}
+
+let style = document.createElement('style');
+style.type = 'text/css';
+style.id = 'dynamic-style';
+
+style.innerHTML = `
+  .campaign_trail_start_emphasis {
+    background-color: #393647;
+  }
+  a:-webkit-any-link {
+  	color: #000000;
+  }
+`;
+
+styling = document.createElement("style");
+styling.innerHTML = `
+#opponent_selection_id_back {
+    display: none;
+}
+`;
+
+const customStyling = document.createElement("style");
+customStyling.innerHTML = `
+#main_content_area_reading {
+    color: black;
+  }
+`;
+
+document.head.appendChild(style);
+document.head.appendChild(styling);
+document.head.appendChild(customStyling);
+
+musicMode = () => {
+    songsPlayed = 0;
+    // Initialise custom music
+  
+    $("#music_player")[0].children[0].style.display = "none"
+    $("#music_player")[0].children[1].style.display = "none"
+  
+    document.getElementById("modLoadReveal").style.display = "none"
+    document.getElementById("modloaddiv").style.display = "none"
+  
+    musicBox = document.getElementById("music_player")
+    musicBox.style.display = ""
+  
+    var trackSel;
+    e = campaignTrail_temp
+    e.selectedSoundtrack = 0
+  
+    toTime = (seconds) => {
+        var date = new Date(null);
+        date.setSeconds(seconds);
+        return date.toISOString().substr(11, 8);
+    }
+  
+    generateTime = () => {
+        // Get the audio element
+        var audio = document.getElementById("campaigntrailmusic");
+  
+        timeTracker = document.createElement("div");
+        timeTracker.style = `
+          text-align:left;
+          border-style:solid;
+          border-width:3px;
+          height:150px;
+          width:200px;
+          background-color:#999999;
+          float:right;
+          padding: 10px;
+          `
+        $("#trackSelParent")[0].prepend(timeTracker);
+        $("#trackSelParent")[0].prepend(document.createElement("br"));
+  
+        // Create a new element to display the current position of the audio
+        var positionDisplay = document.createElement("gg");
+        positionDisplay.id = "position-display";
+  
+        // Create a new slider element to change the time
+        var timeSlider = document.createElement("input");
+        timeSlider.type = "range";
+        timeSlider.min = 0;
+        timeSlider.max = 1;
+        timeSlider.step = 0.001;
+        timeSlider.value = 0;
+        timeSlider.style.width = "200px";
+        timeSlider.id = "time-slider";
+  
+        var pausePlay = document.createElement("button");
+        pausePlay.id = "position-display";
+        pausePlay.innerHTML = "<b>Pause</b>"
+        pausePlay.style.width = "100%";
+  
+  
+        pausePlay.addEventListener("click", event => {
+            event.preventDefault();
+            updatePositionDisplay();
+            let audio = document.getElementById("campaigntrailmusic");
+            if (audio.paused) {
+                audio.play();
+                event.target.innerHTML = "<b>Pause</b>";
+                return;
+            }
+            audio.pause();
+            event.target.innerHTML = "<b>Play</b>";
+            return;
+        })
+  
+        var volumeLabel = document.createElement("gg");
+        volumeLabel.id = "volume-label";
+        volumeLabel.innerHTML = "<br><b>Volume: </b>"
+  
+        var volumeSlider = document.createElement("input");
+        volumeSlider.type = "range";
+        volumeSlider.min = 0;
+        volumeSlider.max = 1;
+        volumeSlider.step = 0.001;
+        volumeSlider.value = 0;
+        volumeSlider.style.width = "200px";
+        volumeSlider.id = "volume-slider";
+  
+        volumeSlider.value = audio.volume;
+  
+        timeTracker.appendChild(pausePlay);
+        timeTracker.appendChild(document.createElement("br"));
+        timeTracker.appendChild(document.createElement("br"));
+        timeTracker.appendChild(positionDisplay);
+        timeTracker.appendChild(timeSlider);
+        timeTracker.appendChild(volumeLabel);
+        timeTracker.appendChild(volumeSlider);
+  
+        updatePositionDisplay();
+  
+        //for (let i = 0; i < 10; i++)
+        //timeTracker.append(document.createElement("br"));
+  
+  
+        // Function to update the position display
+        function updatePositionDisplay() {
+            positionDisplay.innerHTML = "<b>Time:</b> " + toTime(audio.currentTime) + "<br>";
+            timeSlider.value = audio.duration ? audio.currentTime / audio.duration : 0;
+        }
+  
+        // Function to change the time of the audio
+        function changeTime() {
+            positionDisplay.innerHTML = "<b>Time:</b> " + toTime(audio.currentTime) + "<br>";
+            audio.currentTime = timeSlider.value * audio.duration;
+        }
+  
+        updateVolume = event => {
+            audio.volume = event.target.value;
+        }
+  
+        // Update the position display and slider every second
+        setInterval(updatePositionDisplay, 1000);
+  
+        // Listen for changes to the time slider and change the time of the audio
+        timeSlider.addEventListener("input", changeTime);
+        volumeSlider.addEventListener("input", updateVolume)
+    }
+    function newMusicPlayer() {
+            trackSel = document.createElement("div");
+            trackSel.id = "trackSelParent"
+            let z = `<br><br><br><br><br><br><br><br><br><br><div id='trackSel' style="text-align:left;border-style:solid;border-width:3px;overflow-y: scroll;overflow-x: hidden;height:200px; width:400px;background-color:#999999;float:right;">`
+            z += `<b><select id='selectSoundtrack'><option value='` + soundtracks[e.selectedSoundtrack].name + `'>` + soundtracks[e.selectedSoundtrack].name + "</option>"
+            for (i in soundtracks) {
+                if (soundtracks[e.selectedSoundtrack] != soundtracks[i]) {
+                    z += `<option value='` + soundtracks[i].name + `'>` + soundtracks[i].name + `</option>`
+                }
+            }
+            z += `</select></b><br><br>`
+                // <label><input type="radio" name="option" value="option1">Option 1</label><br>
+            for (i in soundtracks[e.selectedSoundtrack].tracklist) {
+                let a = soundtracks[e.selectedSoundtrack].tracklist[i]
+                let b = `<label><input class="trackSelector" type="radio" name="trackSelector" value="` + i + `">` + a.name + `</label><br>`
+                z += b
+            }
+            z += "</div><br><br>"
+            trackSel.innerHTML = z
+      
+            // select correct song
+      
+            musicBox.appendChild(trackSel);
+            Array.from(document.getElementById("trackSel").children).filter(f => {
+                return f.tagName == "LABEL"
+            }).map(f => f.children[0])[0].checked = true
+      
+            // set soundtrack changer
+      
+            soundtrackSelector = document.getElementById("selectSoundtrack")
+            soundtrackSelector.onchange = function() {
+                for (i in soundtracks) {
+                    if (soundtracks[i].name == soundtrackSelector.value) {
+                        e.selectedSoundtrack = i
+                        break
+                    }
+                }
+                document.getElementById("trackSelParent").remove()
+                newMusicPlayer()
+            }
+      
+            var matches = document.querySelectorAll('.trackSelector');
+      
+            for (match in matches) {
+                matches[match].onchange = function() {
+                    audio = $("#campaigntrailmusic")[0];
+                    audio.src = soundtracks[e.selectedSoundtrack].tracklist[this.value].url
+                    audio.currentTime = 0
+                }
+            }
+      
+            musicBox.children[2].loop = false
+            musicBox.children[2].src = soundtracks[e.selectedSoundtrack].tracklist[0].url
+      
+            musicBox.children[2].onended = function() {
+                console.log("next track")
+                let selected = Number(document.querySelector('input[name="trackSelector"]:checked').value);
+                let newSel = clamp(selected + 1, soundtracks[e.selectedSoundtrack].tracklist.length - 1, 0)
+                let buttons = Array.from(document.getElementById("trackSel").children).filter(f => {
+                        return f.tagName == "LABEL"
+                    }).map(f => f.children[0])
+                    //let selectedIndex = buttons.map(f=>f.children[0]).map(f=>f.checked)
+                buttons[newSel].click()
+                songsPlayed++; // Increment the songs played counter
+          
+            
+            }
+              
+            for (w = 0; w < 7; w++) {
+                document.getElementById("trackSelParent").appendChild(document.createElement("br"))
+            }
+      
+            generateTime();
+        }
+    
+      clamp = function(a, max, min, overflow = true) {
+          if (overflow) {
+              return a > max ? min : a < min ? max : a;
+          }
+          return a > max ? max : a < min ? min : a;
+      }
+    
+   
+      // Track list
+    
+      var soundtracks = {
+          0: {
+              name: "Cantos de Guerra",
+              tracklist: [
+              {
+                  "name": "Uma Casa Portuguesa - Amália Rodrigues",
+                  "url": "https://audio.jukehost.co.uk/XnAnyXz8m4KK6Adh6IE64ZuY8fWUgLps"
+                },
+                {
+                  "name": "O Vento Mudou - Eduardo Nascimento",
+                  "url": "https://audio.jukehost.co.uk/ceQwUXnzWQwFChUT1h88AjrdMDa85Kdd"
+                },
+                {
+                  "name": "Eu Tão Só - Conjunto Académico João Paulo",
+                  "url": "https://audio.jukehost.co.uk/CiQERrvnkeoIhyDZrde4uHVSqduB5I4N"
+                },
+                {
+                  "name": "Vocês Sabem lá… - Maria de Fátima Bravo",
+                  "url": "https://audio.jukehost.co.uk/IBHJPPUY8uStj9i2BmIPBMSWWOmkl2eq"
+              },
+              {
+                  "name": "Menina dos Telefones - Maria José Valério",
+                  "url": "https://audio.jukehost.co.uk/aHzv935Pm8sojNNjMXqTyDmN0sAVb3nZ"
+                },
+                {
+                  "name": "Sonhos - Os Conchas",
+                  "url": "https://audio.jukehost.co.uk/nw0O3MXnY5CWyT7qkK9t91THYlClKZls"
+                },
+                {
+                  "name": "Verão - Carlos Mendes",
+                  "url": "https://audio.jukehost.co.uk/5aAwQDEYVSYUjX7QskYAWkLadmTBAyt9"
+                }
+            ]
+         }
+      }
+      // Set up new music player
+      newMusicPlayer()
+}
+
+function addDynamicCSS() {
+  var css = `
+
+  label {
+    display:inline-block;
+  }
+
+  .inner_window_question h3 .mytooltip{
+      background-color: lightskyblue;
+  }
+
+  .mytooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      background-color: lightblue;
+  }
+
+  .mytooltip .mytooltiptext {
+      width: 240px;
+      background-color: lightgray;
+      color: black;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px;
+      position: absolute;
+      z-index: 99;
+      bottom: 20%;
+      left: 20%;
+      margin-left: -90px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      border: 1px solid black;
+      pointer-events: none;
+      font-size: 13px !important;
+      line-height: 1.5em !important;
+      font-weight: normal !important;
+      font-style: normal !important;
+  }
+
+  .mytooltip .mytooltiptext img {
+    max-width: 240px;
+    height: auto;
+  }
+
+  .mytooltip:hover .mytooltiptext {
+    opacity: 1;
+    transition-delay: 0.5s;
+  }
+
+  #new_footer {
+    margin: 0;
+    padding: 0;
+    margin-top: auto;
+  }
+
+  #game_window {
+      display: flex;
+      flex-direction: column;
+      min-height: 587px;
+  }
+
+ .rounded-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 2px solid black;
+      margin: 10px;
+      background-color: white;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+ .inner_window_question {
+      display: flex;
+      flex-direction: column;
+    }
+
+  .mytooltip:hover .bubble {
+  opacity: 1;
+  transition-delay: 0.5s;
+  }
+  .bubble {
+  width: 240px;
+  background-color: lightgray;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 99;
+  bottom: 20%;
+  left: 20%;
+  margin-left: -90px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border: 1px solid black;
+  pointer-events: none;
+  font-size: 13px !important;
+  line-height: 1.5em !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  }
+
+  .desk-content {
+  margin-top: 10px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.desk-section {
+  margin-bottom: 15px;
+  background-color: rgba(219, 208, 208, 0.15);
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #0F0E0C;
+}
+
+.character-list, .minister-grid, .achievement-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.character-item, .minister-btn {
+  background: rgba(128, 142, 142, 0.4);
+  border: 1px solid #0F0E0C;
+  border-radius: 4px;
+  padding: 4px;
+  text-align: center;
+  width: 100px;
+}
+
+.character-item img,
+.minister-img,
+.achievement-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid #0F0E0C;
+}
+
+.achievement-list {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.minister-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.leadership {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.leadership img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #0F0E0C;
+}
+
+.leadership-text {
+  width: 200px;
+}
+
+.left-text {
+  text-align: left;
+  margin: 0;
+}
+
+.right-text {
+  text-align: right;
+  margin: 0;
+}
+
+.parties {
+  margin-top: 10px;
+}
+
+.party-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(128, 142, 142, 0.4);
+  margin-bottom: 5px;
+  padding: 4px;
+  border: 1px solid #0F0E0C;
+}
+
+.party-row img {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #0F0E0C;
+}
+
+.party-name {
+  text-align: center;
+  flex: 1;
+}
+
+.desktooltip {
+  position: absolute;
+  background: rgba(32, 32, 32, 0.95);
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.3;
+  pointer-events: none;
+  z-index: 9999;
+  max-width: 200px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.desktooltip.show {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+  .mytooltip:hover .bubble-bottom-left:before,
+  .mytooltip:hover .bubble-bottom-left:after {
+  opacity: 1;
+  }
+    `;
+
+  var styleElem = document.createElement('style');
+  styleElem.type = 'text/css';
+  
+  styleElem.appendChild(document.createTextNode(css));
+  
+  document.head.appendChild(styleElem);
+}
+
+addDynamicCSS();
