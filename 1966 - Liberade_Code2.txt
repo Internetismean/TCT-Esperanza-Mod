@@ -5991,7 +5991,7 @@ async function handleFooter() {
     new_footer.style.alignItems = "center";
 
     var candidatePic = createNewImageElement("https://cdn.imgchest.com/files/b74eb2d11364.png", 'borderBottom',"WOW");
-    var runningMatePic = createNewImageElement("https://cdn.imgchest.com/files/208843bfb7bb.png", 'borderBottom',"<p>Artur dos Santos Silva might only be the person capable of contesting your grip on the party, the only person who can keep a coalition between the PDS and PUDS together. Thankfully, he’s also one of your closest friends.</p><p>Son of one of the most important figures of the First Republic, forging his path as a lawyer of the democratic opposition. Picked as Justice Minister during the Cunha Leal Ministry, while his relationship with Delgado was tumultuous, his close ties to the PUDS make him the perfect candidate for a Grand Coalition.");
+    var runningMatePic = createNewImageElement("https://cdn.imgchest.com/files/208843bfb7bb.png", 'borderBottom',"<p>Artur dos Santos Silva might only be the person capable of contesting your grip on the party, the only person who can keep a coalition between the PDS and PUDS together. Thankfully, he\'s also one of your closest friends.</p><p>Son of one of the most important figures of the First Republic, forging his path as a lawyer of the democratic opposition. Picked as Justice Minister during the Cunha Leal Ministry, while his relationship with Delgado was tumultuous, his close ties to the PUDS make him the perfect candidate for a Grand Coalition.");
 
     var candidateBox = createBox(candidatePic, "Presidente", "Emídio Guerreiro");
     var runningMateBox = createBox(runningMatePic, "Primeiro-Ministro", "Artur Santos Silva");
@@ -6138,54 +6138,98 @@ function addHeadquarterButton() {
 let savedX = null;
 let savedY = null;
 
-let foreignSupportVar = 0;
-let guineaStateVar = 0;
-let personalismVar = 0;
-let cabinetRelationVar = 0;
 let delgadoLegacyVar = 0;
+let presidentialPowerVar = 0;
+let foreignSupportVar = 0;
+let economicOutlookVar = 0;
+let africanDiscontentVar = 0;
+
+function obtainTextDelgadoLegacyVar()
+{
+    var text = "";
+    if (0 <= delgadoLegacyVar && delgadoLegacyVar <= 2)
+    {
+        text = `The people see you <i><span style="color: #821F14;">as only respecting Delgado's legacy in name only</i></span>. (<span style="color:#821F14;">${delgadoLegacyVar}</span>)`
+    }
+    else if (2 < delgadoLegacyVar && delgadoLegacyVar <= 4)
+    {
+        text = `The people see you <i><span style="color: #d8d512;">as fulfilling Delgado's legacy</i></span>. (<span style="color:#d8d512;">${delgadoLegacyVar}</span>)`
+    }
+    else if (4 < delgadoLegacyVar && delgadoLegacyVar <= 5)
+    {
+        text = `The people see you <i><span style="color: #0c970c;">as Delgado's heir</i></span>. (<span style="color:#0c970c;">${delgadoLegacyVar}</span>)`
+    }
+    return text;
+}
+
+function obtainTextPresidentialPowerVar()
+{
+    var text = "";
+    if (0 <= presidentialPowerVar && presidentialPowerVar <= 2)
+    {
+        text = `As President, you <i><span style="color: #821F14;">face a mutenying government</i></span>. (<span style="color:#821F14;">${presidentialPowerVar}</span>)`
+    }
+    else if (2 < presidentialPowerVar && presidentialPowerVar <= 4)
+    {
+        text = `As President, you <i><span style="color: #d8d512;">have an understanding with the government</i></span>. (<span style="color:#d8d512;">${presidentialPowerVar}</span>)`
+    }
+    else if (4 < presidentialPowerVar && presidentialPowerVar <= 5)
+    {
+        text = `As President, you <i><span style="color: #0c970c;">have total control</i></span>. (<span style="color:#0c970c;">${presidentialPowerVar}</span>)`
+    }
+    return text;
+}
 
 function obtainTextForeignSupportVar()
 {
     var text = "";
-    if (foreignSupportVar < 1)
+    if (0 <= foreignSupportVar && foreignSupportVar <= 2)
     {
-        text = `The Administration has had <i><span style="color: #821F14;">no</i></span> <b>national successes</b>. (<span style="color:#821F14;">${foreignSupportVar}</span>)`
+        text = `In the world, Portugal <i><span style="color: #821F14;">is a pariah</i></span>. (<span style="color:#821F14;">${foreignSupportVar}</span>)`
+    }
+    else if (2 < foreignSupportVar && foreignSupportVar <= 4)
+    {
+        text = `In the world, Portugal <i><span style="color: #d8d512;">has some friends and some enemies</i></span>. (<span style="color:#d8d512;">${foreignSupportVar}</span>)`
+    }
+    else if (4 < foreignSupportVar && foreignSupportVar <= 5)
+    {
+        text = `In the world, Portugal <i><span style="color: #0c970c;">is on everyone's good side</i></span>. (<span style="color:#0c970c;">${foreignSupportVar}</span>)`
     }
     return text;
 }
-function obtainTextGuineaStateVar()
+
+function obtainTextEconomicOutlookVar()
 {
     var text = "";
-    if (guineaStateVar < 1)
+    if (0 <= economicOutlookVar && economicOutlookVar <= 2)
     {
-        text = `The Administration has had <i><span style="color: #821F14;">no</i></span> <b>national successes2</b>. (<span style="color:#821F14;">${guineaStateVar}</span>)`
+        text = `The economy is <i><span style="color: #821F14;">barely afloat</i></span>. (<span style="color:#821F14;">${economicOutlookVar}</span>)`
+    }
+    else if (2 < economicOutlookVar && economicOutlookVar <= 4)
+    {
+        text = `The economy is <i><span style="color: #d8d512;">going steady</i></span>. (<span style="color:#d8d512;">${economicOutlookVar}</span>)`
+    }
+    else if (4 < economicOutlookVar && economicOutlookVar <= 5)
+    {
+        text = `The economy is <i><span style="color: #0c970c;">booming</i></span>. (<span style="color:#0c970c;">${economicOutlookVar}</span>)`
     }
     return text;
 }
-function obtainTextPersonalismVar()
+
+function obtainTextAfricanDiscontentVar()
 {
     var text = "";
-    if (personalismVar < 1)
+    if (0 <= africanDiscontentVar && africanDiscontentVar <= 2)
     {
-        text = `The Administration has had <i><span style="color: #821F14;">no</i></span> <b>national successes3</b>. (<span style="color:#821F14;">${personalismVar}</span>)`
+        text = `The african provinces <i><span style="color: #821F14;">think its us against them</i></span>. (<span style="color:#821F14;">${africanDiscontentVar}</span>)`
     }
-    return text;
-}
-function obtainTextCabinetRelationVar()
-{
-    var text = "";
-    if (cabinetRelationVar < 1)
+    else if (2 < africanDiscontentVar && africanDiscontentVar <= 4)
     {
-        text = `The Administration has had <i><span style="color: #821F14;">no</i></span> <b>national successes4</b>. (<span style="color:#821F14;">${cabinetRelationVar}</span>)`
+        text = `The african provinces <i><span style="color: #d8d512;">belive in unity, even if in name only</i></span>. (<span style="color:#d8d512;">${africanDiscontentVar}</span>)`
     }
-    return text;
-}
-function obtainTextDelgadoLegacyVar()
-{
-    var text = "";
-    if (delgadoLegacyVar < 1)
+    else if (4 < africanDiscontentVar && africanDiscontentVar <= 5)
     {
-        text = `The Administration has had <i><span style="color: #821F14;">no</i></span> <b>national successes5</b>. (<span style="color:#821F14;">${delgadoLegacyVar}</span>)`
+        text = `The african provinces <i><span style="color: #0c970c;">fully believe in Lisboa</i></span>. (<span style="color:#0c970c;">${africanDiscontentVar}</span>)`
     }
     return text;
 }
@@ -6306,7 +6350,7 @@ function loadAgendaContent(container) {
         contendersBox.style.outline = '1px solid #CCCCCC';
         contendersBox.style.border = '1px solid transparent';
   contenderList.forEach(item => {
-    if (item.onList && item.status === "enemy") {
+    if (item.onList) {
       const contenderItem = document.createElement('div');
                 contenderItem.style.display = 'flex';
                 contenderItem.style.alignItems = 'flex-start';
@@ -6351,7 +6395,7 @@ function loadForeignContent(container) {
     const foreignLeadersList = document.createElement('ul');
   foreignLeadersList.style.listStyle = 'none';
     foreignLeadersList.style.padding = '1px';
-     foreignLeadersList.style.maxHeight = '430px';
+     foreignLeadersList.style.maxHeight = '180px';
      foreignLeadersList.style.overflowY = 'auto';
      foreignLeadersList.style.outline = '1px solid #CCCCCC';
     foreignLeadersList.style.border = '1px solid transparent';
@@ -6378,6 +6422,46 @@ function loadForeignContent(container) {
     foreignLeadersList.appendChild(item);
   });
   container.appendChild(foreignLeadersList);
+
+  const wartitle = document.createElement('h2');
+  wartitle.innerText = 'Conflicts';
+    wartitle.style.fontFamily = '"Bahnschrift SemiBold", "Bahnschrift", sans-serif';
+     wartitle.style.color = '#B62C1A';
+     wartitle.style.textShadow = '2px 2px 3px #000000';
+     wartitle.style.fontSize = '24px';
+     wartitle.style.marginTop = '8px';
+  container.appendChild(wartitle);
+
+    const warsList = document.createElement('ul');
+  warsList.style.listStyle = 'none';
+    warsList.style.padding = '1px';
+     warsList.style.maxHeight = '180px';
+     warsList.style.overflowY = 'auto';
+     warsList.style.outline = '1px solid #CCCCCC';
+    warsList.style.border = '1px solid transparent';
+
+  currentWars.forEach(leader => {
+    const item = document.createElement('div');
+    item.style.display = 'flex';
+    item.style.alignItems = 'flex-start';
+    item.style.marginBottom = '5px';
+    item.style.backgroundColor = 'rgba(128,142,142,0.5)';
+    item.style.padding = '4px';
+    item.style.borderRadius = '3px';
+    item.style.outline = '1px solid #0F0E0C';
+    const img = document.createElement('img');
+    img.src = leader.photo;
+    img.style.width = '100px';
+    img.style.height = '100px';
+    img.style.marginRight = '10px';
+    img.style.border = "1px solid #0F0E0C";
+    const text = document.createElement('p');
+    text.style.fontSize = '13px';
+    text.innerHTML = `<b>${leader.name}</b> (${leader.country})<br>${leader.description}`;
+    item.append(img, text);
+    warsList.appendChild(item);
+  });
+  container.appendChild(warsList);
 }
 
 // === CABINET CONTENT ===
@@ -6396,11 +6480,11 @@ function loadCabinetContent(container) {
     container.appendChild(ov);
 
     let overviewtxt = "";
-    overviewtxt += "• " + obtainTextForeignSupportVar() + "<br>";
-    overviewtxt += "• " + obtainTextGuineaStateVar() + "<br>";
-    overviewtxt += "• " + obtainTextPersonalismVar() + "<br>";
-    overviewtxt += "• " + obtainTextCabinetRelationVar() + "<br>";
     overviewtxt += "• " + obtainTextDelgadoLegacyVar() + "<br>";
+    overviewtxt += "• " + obtainTextPresidentialPowerVar() + "<br>";
+    overviewtxt += "• " + obtainTextForeignSupportVar() + "<br>";
+    overviewtxt += "• " + obtainTextEconomicOutlookVar() + "<br>";
+    overviewtxt += "• " + obtainTextAfricanDiscontentVar() + "<br>";
 
     const ovsubtxt = document.createElement('h3');
     ovsubtxt.innerHTML = overviewtxt;
@@ -6496,7 +6580,7 @@ function loadCabinetContent(container) {
 
     // attach tooltip behavior for ministers (same reusable tooltip)
     const onMouseEnterM = (ev) => {
-      const html = m.getTooltip ? m.getTooltip() : `<b>${m.name}</b><br>${m.position || ''}`;
+      const html = m.getTooltip ? m.getTooltip() : `<b>${m.name}</b><br>${m.position}<br>----<br>${m.description}`;
       __deskTooltip.show(html, ev.pageX, ev.pageY);
     };
     const onMouseMoveM = (ev) => __deskTooltip.move(ev.pageX, ev.pageY);
@@ -6914,34 +6998,59 @@ class ParliamentaryLeader {
     this.desc = desc;
   }
 }
+let CharacterZePovinho = new Character('CharacterZePovinho','<b>Zé Povinho</b><br></span><br>DESC GOES HERE','https://cdn.imgchest.com/files/ad1aaf4aace3.png',true,"ally");
+let CharacterArmandoPereira = new Character('CharacterArmandoPereira','<b>Armando António Pereira</b><br></span><br>DESC GOES HERE','https://cdn.imgchest.com/files/cd91f4eef709.png',true,"ally");
+let CharacterBaltasarSilva = new Character('CharacterBaltasarSilva','<b>Baltasar Lopes Silva</b><br></span><br>DESC GOES HERE','https://cdn.imgchest.com/files/7de2ba9fc331.png',true,"ally");
+let CharacterXoseVelo = new Character('CharacterXoseVelo','<b>Xosé Velo</b><br></span><br>DESC GOES HERE','https://cdn.imgchest.com/files/7e4695da110d.png',true,"ally");
+let CharacterFranciscoTenreiro = new Character('CharacterFranciscoTenreiro','<b>Francisco José Tenreiro</b><br></span><br>DESC GOES HERE','https://cdn.imgchest.com/files/5cd280c8a396.png',true,"enemy");
 
+//let Character = new Character('','<b>NAME</b><br></span><br>DESC GOES HERE','',false,"ally");
 let characterList = [
-    new Character('CHARACTER_TEST_1','<b>NAME</b><br></span><br>DESC GOES HERE','https://i.imgur.com/ixLqwxD.png',true,"ally"),
-    new Character('CHARACTER_TEST_2','<b>NAME</b><br></span><br>DESC GOES HERE','https://i.imgur.com/ixLqwxD.png',true,"ally"),
-    new Character('CHARACTER_TEST_3','<b>NAME</b><br></span><br>DESC GOES HERE','https://i.imgur.com/ixLqwxD.png',true,"enemy"),
-    new Character('CHARACTER_TEST_4','<b>NAME</b><br></span><br>DESC GOES HERE','https://i.imgur.com/ixLqwxD.png',true,"enemy")
+    CharacterZePovinho, CharacterArmandoPereira, CharacterBaltasarSilva, CharacterXoseVelo, CharacterFranciscoTenreiro
 ];
 
+let CandidatePiteiraSantos = new Character('CandidatePiteiraSantos','<b>Fernando Piteira Santos</b><br></span><br>DESC GOES HERE','https://cdn.imgchest.com/files/9db303f9fef5.png',true,"ally");
 let contenderList = [
-    new Character('CHARACTER_TEST_1','<b>NAME</b><br></span><br>DESC GOES HERE','https://i.imgur.com/ixLqwxD.png',true,"ally"),
-    new Character('CHARACTER_TEST_2','<b>NAME</b><br></span><br>DESC GOES HERE','https://i.imgur.com/ixLqwxD.png',true,"ally"),
-    new Character('CHARACTER_TEST_3','<b>NAME</b><br></span><br>DESC GOES HERE','https://i.imgur.com/ixLqwxD.png',true,"enemy"),
-    new Character('CHARACTER_TEST_4','<b>NAME</b><br></span><br>DESC GOES HERE','https://i.imgur.com/ixLqwxD.png',true,"enemy")
+    CandidatePiteiraSantos
 ];
 
+let WorldLeaderRockefeller = new ForeignLeader('Nelson Rockefeller', 'https://cdn.imgchest.com/files/c65897776bd3.png', 'United States', 'While the media touts Nelson Rockefeller as the future of his party, he knows better. His Presidency has been marked by a slow withering away of his Liberal image, as he has been forced to cave in time and time again to the insurgent conservative wing of his party. At least for Portugal, he’s been a steadfast ally of our interests in Africa and Europe, openly supporting our presence in both continents.');
+let WorldLeaderDeGaulle = new ForeignLeader('Charles de Gaulle', 'https://cdn.imgchest.com/files/e1a3cd71e31c.png', 'France', 'Desc');
+let WorldLeaderFranco = new ForeignLeader('Francisco Franco', 'https://cdn.imgchest.com/files/1f47da0196ea.png', 'Spain', 'Desc');
+let WorldLeaderVerwoerd = new ForeignLeader('Hendrik Verwoerd', 'https://cdn.imgchest.com/files/6c95198b0d89.png', 'South Africa', 'Desc');
+let WorldLeaderGwambe = new ForeignLeader('Adelino Gwambe', 'https://cdn.imgchest.com/files/fdd266f7b3e0.png', 'Mozambique', 'Desc');
+let WorldLeaderAndrade = new ForeignLeader('Joaquim Pinto de Andrade', 'https://cdn.imgchest.com/files/fc6b265717f1.png', 'Angola', 'Desc');
+let WorldLeaderNecaca = new ForeignLeader('Sidney Manuel Necaca', 'https://cdn.imgchest.com/files/290cd6629ae3.png', 'UPA', 'Desc');
+let WorldLeaderKeita = new ForeignLeader('Mamadou Madeira Keita', 'https://cdn.imgchest.com/files/03373c86339c.png', 'Guinea-Conakry', 'Desc');
+
+//let WorldLeader = new ForeignLeader('Mamadou Madeira Keita', 'img', 'country', 'Desc')
 let foreignLeaders = [
-  new ForeignLeader('Charles de Gaulle', 'https://i.imgur.com/ixLqwxD.png', 'France', 'President of the Fifth Republic'),
-  new ForeignLeader('Dwight Eisenhower', 'https://i.imgur.com/ixLqwxD.png', 'United States', 'Leader of the Free World')
+  WorldLeaderRockefeller, WorldLeaderDeGaulle, WorldLeaderFranco, WorldLeaderVerwoerd, WorldLeaderKeita, WorldLeaderGwambe, WorldLeaderAndrade, WorldLeaderNecaca
+
 ];
 
+let CurrentWarAngola = new ForeignLeader('Angolan Civil War', 'https://cdn.imgchest.com/files/3958cda487d5.png', 'status', 'Desc');
+let CurrentWarGuinea = new ForeignLeader('Guinea War', 'https://cdn.imgchest.com/files/347b5c6e0915.png', 'status', 'Desc');
+//let CurrentWar = new ForeignLeader('name', 'img', 'status', 'Desc')
+let currentWars = [
+    CurrentWarGuinea, CurrentWarAngola
+];
+
+//let Achievement = new DeskAchievement('name','img','desc');
 let deskachievementsList = [
-  new DeskAchievement('Infrastructure Reform', 'https://i.imgur.com/ixLqwxD.png', 'Massive national roadworks program.'),
-  new DeskAchievement('Trade Deal', 'https://i.imgur.com/ixLqwxD.png', 'Signed new trade agreement with France.')
 ];
 
+let MinisterRuiTeixeiraGuerra = new Minister('Ruy Teixeira Guerra', 'https://cdn.imgchest.com/files/43819e233def.png', 'Minister of Foreign Affairs', 'The only member of government kept from the Lapa ministry, Ruy Teixeira Guerra, has become the face of Portuguese foreign diplomacy, a technocrat through and through. By spearheading the country\'s entry into the EEC and expanding the scope of the Tratado de Amizade e Consulta with Brazil, Teixeira Guerra has become one of Europe\'s most renowned diplomats, though critics point to his support for the normalisation of the post-coup Mozambican Republic as a dark blemish on his resumé.');
+let MinisterLuisMeloBiscaia = new Minister('Luis Melo Biscaia','https://cdn.imgchest.com/files/51bd50142985.png','Minister of Economy','Some members of the government can decisively be categorised as part of one ideological camp or another; Luís Biscaia is not one of them, and that\'s exactly why he\'s the Economics Minister. A position granted to the PUDS to appease their desire for greater economic control than they had during the Cunha Leal years, Biscaia had gracefully served as a balanced and neutral figure in the role, more often than not simply continuing old policies rather than bringing about great change. This has kept the government afloat but has also created considerable angst among both radical wings of both parties.');
+let MinisterOliveiraPio = new Minister('Francisco de Oliveira Pio','https://cdn.imgchest.com/files/3b639f4083f6.png','Minister of National Defense','Perhaps if Francisco de Oliveira Pinto had bigger ambitions, he could be the President today, but the old general doesn\'t cut himself for such cutthroat politics anymore. Fighting in the First World War, he opposed the Estado Novo since the 1926 Coup and then enlisted with the Republicans during the Spanish Civil War. After becoming close to the exiled opposition, he was selected by Cunha Leal for the Defence Ministry, where he formed a friendship with Delgado and was even offered the role of Prime Minister, which he gracefully declined. Having held the same role for nearly a decade, he\'s content to build a new armed force to defend the nation.');
+let MinisterAntonioMacedo = new Minister('António Macedo','https://cdn.imgchest.com/files/ecab5ee3c915.png','Minister of Justice','If Santos Silva is the right brain of the government, then António Macedo is its left. An old friend of the Prime Minister and one of the most senior members of the PUDS, Macedo\'s formal title might be Justice Minister, but he\'s informally known as Vice-Prime Minister, having as much say on policy and direction as his PDS counterpart. An incredibly intelligent lawyer and astute politician, he is essential to the coalition\'s survival.');
+
+//let Minister = new Minister('','','','');
 let cabinetMembers = [
-  new Minister('Joaquim da Silva', 'https://i.imgur.com/ixLqwxD.png', 'Minister of Finance', 'Advocates budget discipline.'),
-  new Minister('Maria Oliveira', 'https://i.imgur.com/ixLqwxD.png', 'Minister of Health', 'Supports rural hospitals.')
+    MinisterRuiTeixeiraGuerra,
+    MinisterLuisMeloBiscaia,
+    MinisterOliveiraPio,
+    MinisterAntonioMacedo
 ];
 
 let parliamentData = {
