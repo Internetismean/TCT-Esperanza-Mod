@@ -6706,7 +6706,7 @@ function loadParliamentContent(container) {
     const partiesList = document.createElement('ul');
     partiesList.style.listStyle = 'none';
     partiesList.style.padding = '1px';
-    partiesList.style.maxHeight = '218px';
+    partiesList.style.maxHeight = '280px';
     partiesList.style.overflowY = 'auto';
     partiesList.style.outline = '1px solid #CCCCCC';
     partiesList.style.border = '1px solid transparent';
@@ -6726,15 +6726,61 @@ function loadParliamentContent(container) {
         left.style.width = '60px';
         left.style.border = "1px solid #0F0E0C";
 
+        const onMouseEnterLeft = (ev) => {
+        const html = `${p.left.desc}`;
+        __deskTooltip.show(html, ev.pageX, ev.pageY);
+        };
+        const onMouseMoveLeft = (ev) => {
+        __deskTooltip.move(ev.pageX, ev.pageY);
+        };
+        const onMouseLeaveLeft = () => {
+        __deskTooltip.hide();
+        };
+
+        left.addEventListener('mouseenter', onMouseEnterLeft);
+        left.addEventListener('mousemove', onMouseMoveLeft);
+        left.addEventListener('mouseleave', onMouseLeaveLeft);
+
         const name = document.createElement('div');
-        name.innerText = `${p.name}`;
+        name.innerText = `${p.name}\nUpper House:${p.senateSeats} / Lower House:${p.congressSeats}`;
         name.style.textAlign = 'center';
         name.style.flex = '1';
+
+        const onMouseEnterCenter = (ev) => {
+        const html = `${p.desc}`;
+        __deskTooltip.show(html, ev.pageX, ev.pageY);
+        };
+        const onMouseMoveCenter = (ev) => {
+        __deskTooltip.move(ev.pageX, ev.pageY);
+        };
+        const onMouseLeaveCenter = () => {
+        __deskTooltip.hide();
+        };
+
+        name.addEventListener('mouseenter', onMouseEnterCenter);
+        name.addEventListener('mousemove', onMouseMoveCenter);
+        name.addEventListener('mouseleave', onMouseLeaveCenter);
 
         const right = document.createElement('img');
         right.src = p.right.photo;
         right.style.width = '60px';
         right.style.border = "1px solid #0F0E0C";
+
+        const onMouseEnterRight = (ev) => {
+        const html = `${p.right.desc}`;
+        __deskTooltip.show(html, ev.pageX, ev.pageY);
+        };
+        const onMouseMoveRight = (ev) => {
+        __deskTooltip.move(ev.pageX, ev.pageY);
+        };
+        const onMouseLeaveRight = () => {
+        __deskTooltip.hide();
+        };
+
+        right.addEventListener('mouseenter', onMouseEnterRight);
+        right.addEventListener('mousemove', onMouseMoveRight);
+        right.addEventListener('mouseleave', onMouseLeaveRight);
+
         row.append(left, name, right);
 
         partiesList.appendChild(row);
@@ -6981,12 +7027,13 @@ class Minister {
 }
 
 class Party {
-  constructor(name, left, right, congressSeats, senateSeats) {
+  constructor(name, left, right, congressSeats, senateSeats, desc) {
     this.name = name;
     this.left = left;
     this.right = right;
     this.congressSeats = congressSeats;
     this.senateSeats = senateSeats;
+    this.desc = desc;
   }
 }
 
@@ -7058,17 +7105,47 @@ let parliamentData = {
   leaderRight: new ParliamentaryLeader('António Silva', 'https://i.imgur.com/ixLqwxD.png', 'PUDS', 'DESC GOES HERE'),
   parties: [
     new Party('Partido Democrato-Social', 
+      { photo: 'https://cdn.imgchest.com/files/20099712f31a.png', desc:'<b>Mário Montalvão Machado</b><br>DESC GOES HERE' },
       { photo: 'https://i.imgur.com/ixLqwxD.png', desc:'<b>NAME</b><br>DESC GOES HERE' },
-      { photo: 'https://i.imgur.com/ixLqwxD.png', desc:'<b>NAME</b><br>DESC GOES HERE' },
-      100,
-      50
+      114,
+      31,
+      "The PDS stands firm as the ideological successor of the Partido Democrático and the legacy of the first republic, though once dominated by old porto-republicans it has increasingly shed the anticlericalism and radicalism of Portugal's old “party-of-state” (though perhaps not its predilection for corruption) and moved in the direction of becoming a christian-social party rather than merely a social-democratic party to the dismay of its oppositionist old guard, and to the delight of younger right wing voices eager to move further and no longer rely on alliances with the PUDS to govern, favoring a renewal of ties with the Salazarist right instead."
     ),
     new Party('Partido de União Democrato-Socialista', 
+      { photo: 'https://cdn.imgchest.com/files/da57b5274802.png', desc:'<b>Mário Soares</b><br>DESC GOES HERE' },
       { photo: 'https://i.imgur.com/ixLqwxD.png', desc:'<b>NAME</b><br>DESC GOES HERE' },
+      75,
+      18,
+      "The PUDS is what passes for Portugal's answer to the SPD of West Germany or the PS of France, a party both for and of the broad masses of the working class. The reality however is much more troubled. In spite of a party platform whose socialist radicalism far outpaces the modest aims of its Europeans peers its actual record of governance as seemingly the perpetual junior partner of the larger PDS is fundamentally that of a more moderate party, more than willing to compromise with greedy magnates and power-hungry military officers if it means maintaining the stability of the republic."
+    ),
+    new Party('FUN', 
+      { photo: 'https://cdn.imgchest.com/files/ed1335c41ba4.png', desc:'<b>Rafael Ávila de Azevedo</b><br>DESC GOES HERE' },
       { photo: 'https://i.imgur.com/ixLqwxD.png', desc:'<b>NAME</b><br>DESC GOES HERE' },
-      100,
-      50
-    )
+      51,
+      13,
+      "FUN is what you have when you’re enjoying yourself, it is incidentally also the name of a political alliance in the Republic of Portugal. Made up of the PDP, its smaller partner the FPP, and the meager PRM. Two peas (and a grain) in a pod really, they both serve as parties for those who look fondly upon the days of Salazar (or the monarchy), those who shed tears when remembering the loss of Portugal's colonial empire. The larger and more moderate PDP reflects the more moderate face of this nostalgia, The reactionary presidentialist arming themselves with the image of Brazil's Getulio Vargas and the long history of American presidentialism to call for a more ordered republic. The FPP meanwhile recruits only the unreconstructed Neo-Salazarists who long for the days before 5th of August 1955, or if they’re feeling more honest May 8th 1945."
+    ),
+    new Party('PSO', 
+      { photo: 'https://cdn.imgchest.com/files/05ea97888398.png', desc:'<b>Manuel Sertório</b><br>DESC GOES HERE' },
+      { photo: 'https://i.imgur.com/ixLqwxD.png', desc:'<b>NAME</b><br>DESC GOES HERE' },
+      33,
+      9,
+      "If you put two Marxists in a room you’ll quickly find three new splinter parties. At least that’s how the old joke goes and in the case of the PSO it rings true. Borne out of the failed attempt on president Delgado's life, and founded by one of his personal friends, it attempts to thread the thin line between Delgadist strongman republicanism and Marxism. Those to its right will frequently say it veers far to the left of that line and represents just as big a threat to democracy as the PCP whereas those to its left will say that they are not marxists at all but rather a puppet party of an establishment they regard as just as bad as the ruling class of the old Estado Novo. The PSO continues along, far more concerned with internal debates between the various factions of Eurocommunists, Titoists, Trotskyists etc that make up its body-politique than the opinions of outsiders. That and their continued attempts to sway the PUDS away from its perpetual alliance with the PDS and towards a unified left wing bloc."
+    ),
+    new Party('Partido Comunista Português', 
+      { photo: 'https://cdn.imgchest.com/files/975b760d100d.png', desc:'<b>Álvaro Cunhal</b><br>DESC GOES HERE' },
+      { photo: 'https://i.imgur.com/ixLqwxD.png', desc:'<b>NAME</b><br>DESC GOES HERE' },
+      15,
+      3,
+      "The PCP is a party that has undoubtedly seen better days. Once the unquestionably largest and most organized opposition party inside Salazar's Portugal, the death of the Estado Novo at the hands of its own officer class rather than the Portuguese workers has seen it perpetually reduced to playing second, no third fiddle to other, newer parties. As the working class is increasingly seduced by the populism of Delgado and the pseudo-Marxist gaggle of the PSO the party has quietly slid down from third to fourth place in the chamber of deputies. One almost misses the days of Salazar when there was at least the certainty that even should the revolution fail there would be a struggle, where is the working class now? It is lost in a haze of anarcho-liberalism and social democracy."
+    ),
+    new Party('Partido Socialista Português', 
+      { photo: 'https://cdn.imgchest.com/files/b8baef88e810.png', desc:'<b>António Alçada Baptista</b><br>DESC GOES HERE' },
+      { photo: 'https://i.imgur.com/ixLqwxD.png', desc:'<b>NAME</b><br>DESC GOES HERE' },
+      12,
+      1,
+      "When most people hear the phrase “conservative socialism” they think it an oxymoron, in the first republic it would have been unthinkable, but the PSP however have somehow made this unorthodox political fusion work for them winning over a small but loyal electorate of both impoverished farmers and intellectuals who dream of a ruralist and christian kind of socialism. The party further defies analysis by rejecting both the revolutionary socialism of the east and the vast welfare states of western Europe seemingly committed to reaching socialism purely through christian charity and farmers co-ops."
+    ),
   ]
 };
 
